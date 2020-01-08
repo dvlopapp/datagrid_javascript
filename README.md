@@ -1,4 +1,4 @@
-# Datagrid Javascrpt
+# DataGrid Javascript
 Crear tu propio datagrid
 
 
