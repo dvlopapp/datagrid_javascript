@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>MI DATAGRID</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="js/dataGrid.js"></script>
+    </head>
+    <body>
+        <p>
+            <button type="button" id="btn_grid" class="btn btn-warning">DataGrid</button>
+        </p>
+        <div id="grid_1"></div>
+        <div id="grid_2"></div>
+        
+        <script>
+            $('#btn_grid').click(function(){
+                $('#grid_1').dataGrid({
+                    columns:[
+                        {field: 'Nombres',width: '200px'},
+                        {field: 'Direccion',width: '250'},
+                        {field: 'Zona',width: '150'}
+                    ],
+                    root: 'php/consultas.php'
+                });
+            });
+        </script>
+    </body>
+
+</html>
