@@ -1,0 +1,14 @@
+{
+  "kerf": 3,
+  "trim_left": 0,
+  "trim_right": 0,
+  "stock": [
+    {"id": "bar_6m", "length": 6000, "quantity": 3},
+    {"id": "bar_3m", "length": 3000, "quantity": 10}
+  ],
+  "demands": [
+    {"id": "p1200", "length": 1200, "quantity": 6},
+    {"id": "p800", "length": 800, "quantity": 4},
+    {"id": "p500", "length": 500, "quantity": 3}
+  ]
+}
