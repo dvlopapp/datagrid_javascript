@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optimizador de Corte (Vanilla JS)</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Optimizador de Corte</h1>
+    <nav class="tabs">
+      <button class="tab active" data-tab="one-d">1D</button>
+      <button class="tab" data-tab="two-d">2D</button>
+      <button class="tab" data-tab="about">Acerca de</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="one-d" class="tab-panel active">
+      <div class="panel">
+        <h2>1D - Barras</h2>
+        <div class="grid two">
+          <form id="form-1d" class="card">
+            <h3>Parámetros</h3>
+            <label>
+              Largo de stock (mm)
+              <input type="number" id="stockLength1D" value="6000" min="1" required />
+            </label>
+            <label>
+              Kerf / Ancho de corte (mm)
+              <input type="number" id="kerf1D" value="3" min="0" step="0.1" />
+            </label>
+            <label>
+              Pérdida inicial (mm)
+              <input type="number" id="trimStart1D" value="0" min="0" />
+            </label>
+            <label>
+              Pérdida final (mm)
+              <input type="number" id="trimEnd1D" value="0" min="0" />
+            </label>
+            <label>
+              Demandas (mm x cantidad)
+              <textarea id="demands1D" rows="6" placeholder="Ej.
+1200 x 4
+800 x 3
+450 x 2"></textarea>
+            </label>
+            <div class="actions">
+              <button type="submit">Optimizar 1D</button>
+              <button type="button" id="loadSample1D">Cargar ejemplo</button>
+            </div>
+          </form>
+
+          <div class="card">
+            <h3>Resultado</h3>
+            <div class="metrics" id="metrics1D"></div>
+            <canvas id="canvas1D" width="900" height="300"></canvas>
+            <div class="actions">
+              <button id="exportPlan1D">Exportar JSON</button>
+              <button id="exportPng1D">Exportar PNG</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="two-d" class="tab-panel">
+      <div class="panel">
+        <h2>2D - Planchas</h2>
+        <div class="grid two">
+          <form id="form-2d" class="card">
+            <h3>Parámetros</h3>
+            <label>
+              Ancho plancha (mm)
+              <input type="number" id="sheetWidth" value="2440" min="1" required />
+            </label>
+            <label>
+              Alto plancha (mm)
+              <input type="number" id="sheetHeight" value="1220" min="1" required />
+            </label>
+            <label>
+              Kerf / Ancho de corte (mm)
+              <input type="number" id="kerf2D" value="3" min="0" step="0.1" />
+            </label>
+            <label>
+              Permitir rotación 90°
+              <input type="checkbox" id="allowRotate" checked />
+            </label>
+            <label>
+              Piezas (ancho x alto x cant)
+              <textarea id="pieces2D" rows="6" placeholder="Ej.
+600 x 400 x 4
+300 x 200 x 6"></textarea>
+            </label>
+            <div class="actions">
+              <button type="submit">Optimizar 2D</button>
+              <button type="button" id="loadSample2D">Cargar ejemplo</button>
+            </div>
+          </form>
+
+          <div class="card">
+            <h3>Resultado</h3>
+            <div class="metrics" id="metrics2D"></div>
+            <canvas id="canvas2D" width="900" height="600"></canvas>
+            <div class="actions">
+              <button id="exportPlan2D">Exportar JSON</button>
+              <button id="exportPng2D">Exportar PNG</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="tab-panel">
+      <div class="panel card">
+        <h2>Acerca de</h2>
+        <p>Demo de optimizador de corte en Vanilla JS, con algoritmos heurísticos para 1D y 2D (guillotina). Inspirado en herramientas como Lepton Optimizer.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>© 2025 Cutting Optimizer Demo</span>
+  </footer>
+
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
